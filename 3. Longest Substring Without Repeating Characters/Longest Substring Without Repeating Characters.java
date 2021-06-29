@@ -26,3 +26,22 @@ class Solution {
         return true;
     }
 }
+
+//O(n)
+
+class Solution {
+    public int lengthOfLongestSubstring(String str) {
+        int result = 0;
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        int length = str.length();
+        for(int l=0, r=0; r<length; r++) {
+            char ch = str.charAt(r);
+            if(map.containsKey(ch)) {
+                l = Math.max(map.get(ch), l);
+            }
+            result = Math.max(result, r-l+1);
+            map.put(ch, r+1);
+        }
+        return result;
+    }
+}
