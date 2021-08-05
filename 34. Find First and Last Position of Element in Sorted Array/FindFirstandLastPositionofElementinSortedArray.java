@@ -25,7 +25,7 @@ class Solution {
 //Solution with annotation
 class Solution {
 	//find the first number that is greater than or equal to target.
-	//could return A.length if target is greater than A[A.length-1].
+	//could return nums.length if target is greater than nums[nums.length-1].
 	int findBound(int[] nums, int target) {
 			int left = 0, right = nums.length;
 			while(left < right) {
@@ -34,8 +34,8 @@ class Solution {
 					if(nums[mid] < target) {
 							left = mid + 1;
 					} else {
-			//should not be mid-1 when A[mid]==target.
-			//could be mid even if A[mid]>target because mid<high.
+			//should not be mid-1 when nums[mid]==target.
+			//could be mid even if nums[mid]>target because mid<high.
 							right = mid;
 					}
 			}
