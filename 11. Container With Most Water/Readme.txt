@@ -27,3 +27,5 @@ Constraints:
 n == height.length
 2 <= n <= 105
 0 <= height[i] <= 104
+
+Resource: https://www.youtube.com/watch?v=TI3e-17YAlc&ab_channel=KevinNaughtonJr.

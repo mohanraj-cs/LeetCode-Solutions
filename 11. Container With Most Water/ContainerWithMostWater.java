@@ -11,17 +11,16 @@ class Solution {
 }
 
 //O(N) two pointer algorithm || optimized one
-class Solution {
-  public int maxArea(int[] height) {
-      int i = 0, j = height.length - 1;
-      int maxWater = 0;
-      while(i<j) {
-          maxWater = Math.max(maxWater, Math.min(height[i], height[j]) * (j-i));
-          if(height[i] < height[j])
-              i++;
-          else
-              j--;
-      }
-      return maxWater;
-  }
+public int maxArea(int[] height) {
+    int i = 0, j = height.length - 1;
+    int maxWater = 0;
+    while (i < j) {
+        int min = Math.min(height[i], height[j]);
+        maxWater = Math.max(maxWater, min * (j - i));
+        if (height[i] < height[j])
+            i++;
+        else
+            j--;
+    }
+    return maxWater;
 }

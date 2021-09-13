@@ -22,3 +22,5 @@ Constraints:
 
 0 <= nums.length <= 3000
 -105 <= nums[i] <= 105
+
+Resource: https://www.youtube.com/watch?v=onLoX6Nhvmg&ab_channel=takeUforward
