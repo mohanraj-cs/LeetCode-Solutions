@@ -35,3 +35,6 @@ s and t consist of uppercase and lowercase English letters.
  
 
 Follow up: Could you find an algorithm that runs in O(m + n) time?
+
+https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
+https://www.youtube.com/watch?v=jSto0O4AJbM
