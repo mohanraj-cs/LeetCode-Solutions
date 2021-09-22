@@ -4,6 +4,7 @@ public String minWindow(String s, String t) {
         map[c]++;
     }
     int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
+    
     while (end < s.length()) {
         final char c1 = s.charAt(end);
         if (map[c1] > 0) 
