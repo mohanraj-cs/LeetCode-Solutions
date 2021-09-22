@@ -24,3 +24,5 @@ Constraints:
 1 <= s.length <= 105
 s consists of only uppercase English letters.
 0 <= k <= s.length
+
+https://www.youtube.com/watch?v=gqXU1UyA8pk&ab_channel=NeetCode
