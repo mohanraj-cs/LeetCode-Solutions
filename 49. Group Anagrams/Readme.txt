@@ -25,3 +25,5 @@ Constraints:
 1 <= strs.length <= 104
 0 <= strs[i].length <= 100
 strs[i] consists of lower-case English letters.
+
+https://www.youtube.com/watch?v=0I6IL3TnIZs
