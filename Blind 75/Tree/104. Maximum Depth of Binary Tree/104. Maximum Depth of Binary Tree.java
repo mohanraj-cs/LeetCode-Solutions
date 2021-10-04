@@ -5,3 +5,5 @@ public int maxDepth(TreeNode root) {
     }
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
+
+// DFS and BFS?
