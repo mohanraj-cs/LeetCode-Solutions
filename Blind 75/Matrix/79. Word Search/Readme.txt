@@ -30,3 +30,5 @@ n = board[i].length
 1 <= m, n <= 6
 1 <= word.length <= 15
 board and word consists of only lowercase and uppercase English letters.
+
+https://www.youtube.com/watch?v=5o-kdjv7FD0
