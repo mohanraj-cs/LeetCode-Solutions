@@ -23,7 +23,32 @@ class Solution {
     }
 }
 
-// storing length alone instead of string.
+// storing length alone instead of string - 1.
+public String longestPalindrome(String s) {
+    if (s == null || s.length() < 1) return "";
+    int start = 0, end = 0;
+    for (int i = 0; i < s.length(); i++) {
+        int len1 = expandAroundCenter(s, i, i);
+        int len2 = expandAroundCenter(s, i, i + 1);
+        int len = Math.max(len1, len2);
+        if (len > end - start) {
+            start = i - (len - 1) / 2;
+            end = i + len / 2;
+        }
+    }
+    return s.substring(start, end + 1);
+}
+
+private int expandAroundCenter(String s, int left, int right) {
+    int L = left, R = right;
+    while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+        L--;
+        R++;
+    }
+    return R - L - 1;
+}
+
+// storing length alone instead of string - 2.
 class Solution {
     public String longestPalindrome(String s) {
         int max = 0, idx = 0;
@@ -50,12 +75,12 @@ class Solution {
     public String longestPalindrome(String s) {
         if (s.length() <= 1)
             return s;
-        
+
         boolean[][] dp = new boolean[s.length()][s.length()];
-        
+
         for (int i = 0; i < s.length(); i++)
             dp[i][i] = true;
-        
+
         int maxStart = 0, maxLen = 1;
         for (int start = s.length() - 1; start >= 0; start--) {
             for (int end = start + 1; end < s.length(); end++) {
@@ -71,7 +96,7 @@ class Solution {
 
             }
         }
-        
+
         return s.substring(maxStart, maxStart + maxLen);
     }
 }
