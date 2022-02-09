@@ -13,6 +13,7 @@ public int[] twoSum(int[] numArray, int target) {
     for (int i = 0; i < numArray.length; i++) {
         if (map.containsKey(target - numArray[i])) {
             return new int[] {map.get(target - numArray[i]), i };
+            
         }
         map.put(numArray[i], i);
     }
