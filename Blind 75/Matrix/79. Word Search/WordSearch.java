@@ -7,18 +7,18 @@ public class Solution {
             }
         return false;
     }
-    
-    private boolean dfs(char[][] board, int i, int j, String word, int ind) {
-        if (ind == word.length()) 
+
+    private boolean dfs(char[][] board, int i, int j, String word, int idx) {
+        if (idx == word.length())
             return true;
-        if (i > board.length - 1 || i < 0 || j < 0 || j > board[0].length - 1 || board[i][j] != word.charAt(ind))
+        if (i < 0 || i > board.length - 1 || j < 0 || j > board[0].length - 1 || board[i][j] != word.charAt(idx))
             return false;
         board[i][j] = '*'; // use '*' to represent this cell is visited
-        boolean result = dfs(board, i - 1, j, word, ind + 1) ||
-            dfs(board, i, j - 1, word, ind + 1) ||
-            dfs(board, i, j + 1, word, ind + 1) ||
-            dfs(board, i + 1, j, word, ind + 1);
-        board[i][j] = word.charAt(ind);
+        boolean result = dfs(board, i - 1, j, word, idx + 1) ||
+            dfs(board, i, j - 1, word, idx + 1) ||
+            dfs(board, i + 1, j, word, idx + 1) ||
+            dfs(board, i, j + 1, word, idx + 1);
+        board[i][j] = word.charAt(idx);
         return result;
     }
 }
