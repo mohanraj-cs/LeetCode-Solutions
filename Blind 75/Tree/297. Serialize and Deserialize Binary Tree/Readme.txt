@@ -4,7 +4,7 @@ Design an algorithm to serialize and deserialize a binary tree. There is no rest
 
 Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
 
- 
+
 
 Example 1:
 
@@ -23,9 +23,11 @@ Example 4:
 
 Input: root = [1,2]
 Output: [1,2]
- 
+
 
 Constraints:
 
 The number of nodes in the tree is in the range [0, 104].
 -1000 <= Node.val <= 1000
+
+https://www.youtube.com/watch?v=suj1ro8TIVY
