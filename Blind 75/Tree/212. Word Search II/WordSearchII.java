@@ -40,13 +40,13 @@ class Solution {
         }
 
         board[i][j] = '#';
-        if (i > 0) 
-            dfs(board, i - 1, j, node, res); //Down
-        if (j > 0) 
+        if (i > 0)
+            dfs(board, i - 1, j, node, res); //Up
+        if (j > 0)
             dfs(board, i, j - 1, node, res); //LEFT
-        if (i < board.length - 1) 
-            dfs(board, i + 1, j, node, res); //TOP
-        if (j < board[0].length - 1) 
+        if (i < board.length - 1)
+            dfs(board, i + 1, j, node, res); //Down
+        if (j < board[0].length - 1)
             dfs(board, i, j + 1, node, res); //RIGHT
         board[i][j] = c;
     }
