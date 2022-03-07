@@ -7,7 +7,7 @@ public ListNode reverseList(ListNode head) {
         prevHead = head; // advance prev
         head = recordNext; // advance currHead
     }
-    // Now head and prev will be null at the End of node
+    // Now head will be null at the End of node
     return prevHead; // new Head
 }
 
