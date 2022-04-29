@@ -1,14 +1,14 @@
 public int findMin(int[] nums) {
     if (nums == null || nums.length == 0)
         return -1;
-    
-    int left = 0, right = nums.length - 1;
-    while (left < right) {
-        int mid = (left + right) / 2;
-        if (nums[mid] > nums[right]) 
-            left = mid + 1;
+
+    int l = 0, r = nums.length - 1;
+    while (l < r) {
+        int mid = (l + r) / 2;
+        if (nums[mid] > nums[r])
+            l = mid + 1;
         else
-            right = mid;
+            r = mid;
     }
-    return nums[left];
+    return nums[l];
 }
