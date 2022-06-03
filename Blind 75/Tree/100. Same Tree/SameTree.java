@@ -1,3 +1,15 @@
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null)
+            return true;
+        if (p == null || q == null)
+            return false;
+        if (p.val != q.val)
+            return false;
+
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+}
 //Optimized trick
 // from prev solution, the first 2 lines can be combined into 1 line:
 // if (p == null || q == null) return (p == q);
