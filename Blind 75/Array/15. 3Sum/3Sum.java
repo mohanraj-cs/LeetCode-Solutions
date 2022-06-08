@@ -1,3 +1,39 @@
+// written in methods
+class Solution {
+    public List < List < Integer >> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List < List < Integer >> res = new LinkedList < > ();
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i == 0 || nums[i] != nums[i - 1]) { //skip same elements to avoid duplicates
+                if (nums[i] > 0) {
+                    break;
+                }
+                searchPair(nums, res, i);
+            }
+        }
+        return res;
+    }
+
+    private void searchPair(int[] nums, List < List < Integer >> res, int begin) {
+        int l = begin + 1, r = nums.length - 1, target = 0 - nums[begin];
+        while (l < r) {
+            if (nums[l] + nums[r] == target) { // found the match
+                res.add(Arrays.asList(nums[begin], nums[l], nums[r]));
+                l++;
+                r--;
+                while (l < r && nums[l] == nums[l - 1])
+                    l++; //skip same element to avoud duplicates
+                while (l < r && nums[r] == nums[r + 1])
+                    r--; //skip same element to avoud duplicates
+            } else if (nums[l] + nums[r] < target) {
+                l++;  //we need a pair with bigger element so move left
+            } else {
+                r--; //we need a pair with smaller element so move right
+            }
+        }
+    }
+}
+
 // O(N*2) faster than 98% optimised
 public List < List < Integer >> threeSum(int[] nums) {
     Arrays.sort(nums);
@@ -28,7 +64,7 @@ public List < List < Integer >> threeSum(int[] nums) {
 }
 
 
-// O(N*3) Brute force 
+// O(N*3) Brute force
 class Solution {
     public List < List < Integer >> threeSum(int[] nums) {
         Arrays.sort(nums);
