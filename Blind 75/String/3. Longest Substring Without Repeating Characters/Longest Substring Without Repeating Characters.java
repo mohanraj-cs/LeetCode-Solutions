@@ -1,23 +1,45 @@
 //O(n) - Hash Map
-
-class Solution {
-    public int lengthOfLongestSubstring(String str) {
-        int result = 0;
-        HashMap < Character, Integer > map = new HashMap < Character, Integer > ();
-        int length = str.length();
-        for (int l = 0, r = 0; r < length; r++) {
-            char ch = str.charAt(r);
-            if (map.containsKey(ch)) {
-                l = Math.max(map.get(ch), l);
-            }
-            result = Math.max(result, r - l + 1);
-            map.put(ch, r + 1);
+public int lengthOfLongestSubstring(String s) {
+    Map < Character, Integer > map = new HashMap < > ();
+    int begin = 0, end = 0, res = 0;
+    while (end < s.length()) {
+        char ch = s.charAt(end);
+        if (map.containsKey(ch)) {
+            begin = Math.max(map.get(ch) + 1, begin);
         }
-        return result;
+        map.put(ch, end);
+        res = Math.max(res, end - begin + 1);
+        end++;
     }
+    return res;
 }
 
-// O(2n) - Hash set 
+// O(n) - Hash Map, alternative with hashing count instead of index
+public int lengthOfLongestSubstring(String s) {
+    Map < Character, Integer > map = new HashMap < > ();
+    int start = 0, end = 0, counter = 0, res = 0;
+
+    while (end < s.length()) {
+        char c = s.charAt(end);
+        map.put(c, map.getOrDefault(c, 0) + 1);
+        if (map.get(c) > 1) { // if (map.get(c) == 2) {
+            counter++;
+        }
+        end++;
+        while (counter > 0) {
+            char tempc = s.charAt(start);
+            if (map.get(tempc) > 1) { //if (map.get(tempc) == 2)
+                counter--;
+            }
+            map.put(tempc, map.get(tempc) - 1);
+            start++;
+        }
+        res = Math.max(res, end - start);
+    }
+    return res;
+}
+
+// O(2n) - Hash set
 public int lengthOfLongestSubstring(String s) {
     int i = 0, j = 0, max = 0;
     Set < Character > set = new HashSet < > ();
