@@ -17,3 +17,33 @@ public void sortColors(int[] nums) {
         }
     }
 }
+
+class Solution {
+    public void sortColors(int[] nums) {
+        int l = 0, m = 0, h = nums.length - 1;
+        while (m <= h) {
+            if (nums[m] == 0) {
+                swap(nums, l, m);
+                l++;
+                m++;
+            } else if (nums[m] == 1) {
+                m++;
+            } else {
+                swap(nums, m, h);
+                h--;
+            }
+        }
+    }
+
+    private void swap(int nums[], int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+
+// Time complexity #
+// The time complexity of the above algorithm will be O(N)O(N) as we are iterating the input array only once.
+//
+// Space complexity #
+// The algorithm runs in constant space O(1)O(1).
